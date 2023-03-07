@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{3B78440F-EE45-4D4B-83D7-C33FFF1A0220}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{78A81F27-1DFA-4B48-A555-4DAD4B8C13FA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1720,6 +1720,151 @@
               </outputs>
             </component>
             <component
+              refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="KramseTPS_v7_ShipmentDetail"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[KramseTPS_v7_ShipmentDetail]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Connections[OleDbConnection]"
+                  connectionManagerID="{35E971E0-A2D8-4359-85AD-B094AC873CAF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-44HRUJ4.Kramse_Raw]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].Columns[ShipmentId]"
+                      cachedDataType="i4"
+                      cachedName="ShipmentId"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ShipmentId]" />
+                    <inputColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].Columns[ContainerNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerNr"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ContainerNr]" />
+                    <inputColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].Columns[Item]"
+                      cachedDataType="i4"
+                      cachedName="Item"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[Item]"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[Item]" />
+                    <inputColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].Columns[ContainertypeId]"
+                      cachedDataType="i4"
+                      cachedName="ContainertypeId"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[ContainertypeId]"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ContainertypeId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
+                      dataType="i4"
+                      name="ShipmentId" />
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[Item]"
+                      dataType="i4"
+                      name="Item" />
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[ContainertypeId]"
+                      dataType="i4"
+                      name="ContainertypeId" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load_KramseTPS_v7\KramseTPS_v7_Voyage"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -2934,6 +3079,169 @@
               </outputs>
             </component>
             <component
+              refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Load_KramseTPS_v7_ShipmentDetail"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">ShipmentDetail</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Connections[OleDbConnection]"
+                  connectionManagerID="{595CB854-6237-48C9-A50D-47BF2115AA00}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[C__dev_2.3_Project_Business_Intelligence_Project_Kramse_Bronnen_KramseTPS v7.mdb.admin]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ShipmentId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[ShipmentId]"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ShipmentId]"
+                      name="ShipmentId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      length="50"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      name="ContainerNr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[Item]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[Item]"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[Item]"
+                      name="Item"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ContainertypeId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[ContainertypeId]"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ContainertypeId]"
+                      name="ContainertypeId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[ShipmentId]"
+                      dataType="i4"
+                      name="ShipmentId" />
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[Item]"
+                      dataType="i4"
+                      name="Item" />
+                    <externalMetadataColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output].ExternalColumns[ContainertypeId]"
+                      dataType="i4"
+                      name="ContainertypeId" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ShipmentId]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ShipmentId]"
+                      name="ShipmentId" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      name="ContainerNr" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[Item]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[Item]"
+                      name="Item" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ContainertypeId]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ContainertypeId]"
+                      name="ContainertypeId" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -3360,6 +3668,11 @@
               endId="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_VoyagePort.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output6]"
+              endId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -5512,7 +5825,7 @@
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\Load_Container_v3"
-          TopLeft="560.769242982011,195.787882943059" />
+          TopLeft="565.769243090904,189.87879190856" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Load_KramseTPS_v7"
@@ -5595,26 +5908,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49.587693664668,112.036366896968"
+              EndConnector="54.5876937735611,106.127275862469"
               Start="0,0"
-              End="49.587693664668,104.536366896968">
+              End="54.5876937735611,98.627275862469">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.1311154154363" />
+                    End="0,43.4870692645718" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,46.1311154154363"
-                    Point2="0,50.1311154154363"
-                    Point3="4,50.1311154154363" />
+                    Point1="0,43.4870692645718"
+                    Point2="0,47.4870692645718"
+                    Point3="4,47.4870692645718" />
                   <mssgle:LineSegment
-                    End="45.587693664668,50.1311154154363" />
+                    End="50.5876937735611,47.4870692645718" />
                   <mssgle:CubicBezierSegment
-                    Point1="45.587693664668,50.1311154154363"
-                    Point2="49.587693664668,50.1311154154363"
-                    Point3="49.587693664668,54.1311154154363" />
+                    Point1="50.5876937735611,47.4870692645718"
+                    Point2="54.5876937735611,47.4870692645718"
+                    Point3="54.5876937735611,51.4870692645718" />
                   <mssgle:LineSegment
-                    End="49.587693664668,104.536366896968" />
+                    End="54.5876937735611,98.627275862469" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5728,7 +6041,7 @@
     design-time-name="Package\Load_Container_v3">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\Load_Container_v3\Load_Container_v3"
@@ -5756,9 +6069,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5781,7 +6092,15 @@
     design-time-name="Package\Load_KramseTPS_v7">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort"
+          TopLeft="1351.16664653271,280.666670054197" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Port"
+          TopLeft="280.666662484408,348.766662983596" />
         <NodeLayout
           Size="204.8,41.6"
           Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Item"
@@ -5791,25 +6110,17 @@
           Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Shipment"
           TopLeft="654.99999023974,201.266665181518" />
         <NodeLayout
-          Size="217.6,41.6"
-          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage"
-          TopLeft="845.666654065252,140.266666090488" />
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Port"
-          TopLeft="280.666662484408,348.766662983596" />
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship"
-          TopLeft="475.999992907047,137.933332791925" />
-        <NodeLayout
-          Size="236.8,41.6"
-          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_VoyagePort"
-          TopLeft="1031.66665129364,200.866666701436" />
+          Size="254.4,41.6"
+          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail"
+          TopLeft="851.452368264754,123.813424081596" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship"
           TopLeft="488.666659384966,272.866665628552" />
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship"
+          TopLeft="475.999992907047,137.933332791925" />
         <NodeLayout
           Size="198.4,41.6"
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Shipment"
@@ -5819,44 +6130,46 @@
           Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Port"
           TopLeft="259.666662797332,202.666663646698" />
         <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage"
+          TopLeft="1117.09522144922,191.695236752714" />
+        <NodeLayout
+          Size="236.8,41.6"
+          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_VoyagePort"
+          TopLeft="1328.80950400872,121.580953597171" />
+        <NodeLayout
           Size="188.8,41.6"
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Voyage"
-          TopLeft="859.666653856636,286.566668452322" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort"
-          TopLeft="1051.16665100306,350.666669011116" />
+          TopLeft="1131.09522124061,337.995239114548" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Item"
           TopLeft="67.1666656658055,270.16666264087" />
         <EdgeLayout
           Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output5]"
-          TopLeft="1152.61665114835,242.466666701436">
+          TopLeft="1451.18807527072,163.180953597171">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,108.20000230968"
+              EndConnector="0,117.485716457027"
               Start="0,0"
-              End="0,100.70000230968">
+              End="0,109.985716457027">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,100.70000230968" />
+                    End="0,109.985716457027" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output4]"
-          TopLeft="954.266653960944,181.866666090488">
+          TopLeft="1225.69522134491,233.295236752714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5873,9 +6186,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5897,9 +6208,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5921,9 +6230,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5945,9 +6252,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5969,14 +6274,51 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="225.6,41.6"
+          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail"
+          TopLeft="870.200018402935,280.163641655848" />
+        <EdgeLayout
+          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output6]"
+          TopLeft="980.826193333844,165.413424081596">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114.750217574251"
+              Start="0,0"
+              End="0,107.250217574251">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.250217574251" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Port">
     <Properties>
@@ -5991,7 +6333,46 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Port">
+    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Item">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Shipment">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6030,33 +6411,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Voyage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Item">
+    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Port">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6082,32 +6437,6 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Shipment">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Item">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_VoyagePort">
     <Properties>
       <Property>
@@ -6121,7 +6450,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort">
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Voyage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Item">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6200,6 +6542,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load_MRV\MRV">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
