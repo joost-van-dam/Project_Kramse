@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{5D997B04-7028-4A41-9F83-91283277159A}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{3B78440F-EE45-4D4B-83D7-C33FFF1A0220}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,18 @@
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\dev\2.3\Project_Business_Intelligence\Project_Kramse\Bronnen\2016-EU MRV Publication of information v5.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B9E9F623-3325-4B80-A33A-9D371BCF196F}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\dev\2.3\Project_Business_Intelligence\Project_Kramse\Bronnen\Consignor.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -218,690 +230,64 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[IMO Number]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="IMO Number"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[IMO Number]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[IMO Number]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Name"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Ship type]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Ship type"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Ship type]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Ship type]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Reporting Period]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Id]"
                       cachedDataType="r8"
-                      cachedName="Reporting Period"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Reporting Period]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Reporting Period]" />
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Technical efficiency]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Consignor]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Technical efficiency"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Technical efficiency]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Technical efficiency]" />
+                      cachedName="Consignor"
+                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Consignor]"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Consignor]" />
                     <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Port of Registry]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[City]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Port of Registry"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Port of Registry]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Port of Registry]" />
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[City]" />
                     <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Home Port]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Country]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Home Port"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Home Port]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Home Port]" />
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Country]" />
                     <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Ice Class]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Ice Class"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Ice Class]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Ice Class]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Verifier Number]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Number"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Number]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Number]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Verifier Name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Name"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Name]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Name]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Verifier NAB]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier NAB"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier NAB]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier NAB]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Verifier Address]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Address"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Address]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Address]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Verifier City]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier City"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier City]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier City]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Verifier Accreditation number]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Accreditation number"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Accreditation number]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Accreditation number]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Verifier Country]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Verifier Country"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Country]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Country]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[A]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="A"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[A]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[A]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[B]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="B"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[B]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[B]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[C]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="C"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[C]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[C]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[D]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="D"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[D]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[D]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Total fuel consumption (m tonnes)]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Discount]"
                       cachedDataType="r8"
-                      cachedName="Total fuel consumption (m tonnes)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total fuel consumption (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Fuel consumptions assigned to On laden (m tonnes)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Total CO₂ emissions (m tonnes)]"
-                      cachedDataType="r8"
-                      cachedName="Total CO₂ emissions (m tonnes)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total CO₂ emissions (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total CO₂ emissions (m tonnes)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      cachedDataType="r8"
-                      cachedName="CO₂ emissions from all voyages between ports under a MS jurisdic"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions from all voyages which departed from ports under a]"
-                      cachedDataType="r8"
-                      cachedName="CO₂ emissions from all voyages which departed from ports under a"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages which departed from ports under a]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      cachedDataType="r8"
-                      cachedName="CO₂ emissions from all voyages to ports under a MS jurisdiction "
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      cachedDataType="r8"
-                      cachedName="CO₂ emissions which occurred within ports under a MS jurisdictio"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions assigned to Passenger transport (m tonnes)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions assigned to Freight transport (m tonnes)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions assigned to On laden (m tonnes)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual Total time spent at sea (hours)]"
-                      cachedDataType="r8"
-                      cachedName="Annual Total time spent at sea (hours)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual Total time spent at sea (hours)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      cachedDataType="r8"
-                      cachedName="Annual average Fuel consumption per distance (kg / n mile)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      cachedDataType="r8"
-                      cachedName="Annual average Fuel consumption per transport work (mass) (g / m"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average Fuel consumption per transport work (volume) (g /"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average Fuel consumption per transport work (dwt) (g / dw"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average Fuel consumption per transport work (pax) (g / pa"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average Fuel consumption per transport work (freight) (g "
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      cachedDataType="r8"
-                      cachedName="Annual average CO₂ emissions per distance (kg CO₂ / n mile)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      cachedDataType="r8"
-                      cachedName="Annual average CO₂ emissions per transport work (mass) (g CO₂ / "
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average CO₂ emissions per transport work (volume) (g CO₂ "
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Annual average CO₂ emissions per transport work (freight) (g CO₂"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Through ice (n miles)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Through ice (n miles)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Through ice (n miles)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Through ice (n miles)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Total time spent at sea (hours)]"
-                      cachedDataType="r8"
-                      cachedName="Total time spent at sea (hours)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total time spent at sea (hours)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Total time spent at sea through ice (hours)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Total time spent at sea through ice (hours)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total time spent at sea through ice (hours)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Fuel consumption per distance on laden voyages (kg / n mile)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Fuel consumption per transport work (mass) on laden voyages (g /"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Fuel consumption per transport work (volume) on laden voyages (g"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Fuel consumption per transport work (dwt) on laden voyages (g / "
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Fuel consumption per transport work (pax) on laden voyages (g / "
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Fuel consumption per transport work (freight) on laden voyages ("
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ "
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions per transport work (volume) on laden voyages (g CO"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CO₂ emissions per transport work (freight) on laden voyages (g C"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Additional information to facilitate the understanding of the re]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Additional information to facilitate the understanding of the re"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Additional information to facilitate the understanding of the re]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]" />
-                    <inputColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].Columns[Average density of the cargo transported (m tonnes / m³)]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Average density of the cargo transported (m tonnes / m³)"
-                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]" />
+                      cachedName="Discount"
+                      externalMetadataColumnId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Discount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[IMO Number]"
-                      dataType="wstr"
-                      length="255"
-                      name="IMO Number" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                      dataType="wstr"
-                      length="255"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Ship type]"
-                      dataType="wstr"
-                      length="255"
-                      name="Ship type" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Reporting Period]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       dataType="r8"
-                      name="Reporting Period" />
+                      name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Technical efficiency]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Consignor]"
                       dataType="wstr"
                       length="255"
-                      name="Technical efficiency" />
+                      name="Consignor" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Port of Registry]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[City]"
                       dataType="wstr"
                       length="255"
-                      name="Port of Registry" />
+                      name="City" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Home Port]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
                       dataType="wstr"
                       length="255"
-                      name="Home Port" />
+                      name="Country" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Ice Class]"
-                      dataType="wstr"
-                      length="255"
-                      name="Ice Class" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Number]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Number" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Name]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier NAB]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier NAB" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Address]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Address" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier City]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier City" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Accreditation number]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Accreditation number" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Verifier Country]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Country" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[A]"
-                      dataType="wstr"
-                      length="255"
-                      name="A" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[B]"
-                      dataType="wstr"
-                      length="255"
-                      name="B" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[C]"
-                      dataType="wstr"
-                      length="255"
-                      name="C" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[D]"
-                      dataType="wstr"
-                      length="255"
-                      name="D" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total fuel consumption (m tonnes)]"
+                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
                       dataType="r8"
-                      name="Total fuel consumption (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumptions assigned to On laden (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total CO₂ emissions (m tonnes)]"
-                      dataType="r8"
-                      name="Total CO₂ emissions (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      dataType="r8"
-                      name="CO₂ emissions from all voyages between ports under a MS jurisdic" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
-                      dataType="r8"
-                      name="CO₂ emissions from all voyages which departed from ports under a" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      dataType="r8"
-                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      dataType="r8"
-                      name="CO₂ emissions which occurred within ports under a MS jurisdictio" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions assigned to Passenger transport (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions assigned to Freight transport (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions assigned to On laden (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual Total time spent at sea (hours)]"
-                      dataType="r8"
-                      name="Annual Total time spent at sea (hours)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      dataType="r8"
-                      name="Annual average Fuel consumption per distance (kg / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      dataType="r8"
-                      name="Annual average Fuel consumption per transport work (mass) (g / m" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (volume) (g /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (dwt) (g / dw" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (pax) (g / pa" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (freight) (g " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      dataType="r8"
-                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      dataType="r8"
-                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Through ice (n miles)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Through ice (n miles)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total time spent at sea (hours)]"
-                      dataType="r8"
-                      name="Total time spent at sea (hours)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Total time spent at sea through ice (hours)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Total time spent at sea through ice (hours)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per distance on laden voyages (kg / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (mass) on laden voyages (g /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (volume) on laden voyages (g" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (dwt) on laden voyages (g / " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (pax) on laden voyages (g / " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (freight) on laden voyages (" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (freight) on laden voyages (g C" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Additional information to facilitate the understanding of the re]"
-                      dataType="wstr"
-                      length="255"
-                      name="Additional information to facilitate the understanding of the re" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Consignor.Inputs[OLE DB Destination Input].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Average density of the cargo transported (m tonnes / m³)" />
+                      name="Discount" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -946,7 +332,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Publication$</property>
+                  name="OpenRowset">Consignor$</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -973,8 +359,8 @@
               <connections>
                 <connection
                   refId="Package\Load_Consignor\Load_Consignor.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -984,867 +370,79 @@
                   name="Excel Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[IMO Number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[IMO Number]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[IMO Number]"
-                      name="IMO Number"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Name]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Name]"
-                      name="Name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Ship type]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Ship type]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Ship type]"
-                      name="Ship type"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Reporting Period]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Id]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Reporting Period]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Reporting Period]"
-                      name="Reporting Period"
+                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Id]"
+                      name="Id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Technical efficiency]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Consignor]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Technical efficiency]"
+                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Consignor]"
                       length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Technical efficiency]"
-                      name="Technical efficiency"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Consignor]"
+                      name="Consignor"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Port of Registry]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[City]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Port of Registry]"
+                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[City]"
                       length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Port of Registry]"
-                      name="Port of Registry"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[City]"
+                      name="City"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Home Port]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Country]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Home Port]"
+                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Country]"
                       length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Home Port]"
-                      name="Home Port"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Country]"
+                      name="Country"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Ice Class]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Ice Class]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Ice Class]"
-                      name="Ice Class"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Number]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Number]"
-                      name="Verifier Number"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Name]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Name]"
-                      name="Verifier Name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier NAB]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier NAB]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier NAB]"
-                      name="Verifier NAB"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Address]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Address]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Address]"
-                      name="Verifier Address"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier City]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier City]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier City]"
-                      name="Verifier City"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Accreditation number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Accreditation number]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Accreditation number]"
-                      name="Verifier Accreditation number"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Country]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Country]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Verifier Country]"
-                      name="Verifier Country"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[A]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[A]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[A]"
-                      name="A"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[B]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[B]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[B]"
-                      name="B"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[C]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[C]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[C]"
-                      name="C"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[D]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[D]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[D]"
-                      name="D"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Discount]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total fuel consumption (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total fuel consumption (m tonnes)]"
-                      name="Total fuel consumption (m tonnes)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      name="Fuel consumptions assigned to On laden (m tonnes)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total CO₂ emissions (m tonnes)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total CO₂ emissions (m tonnes)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total CO₂ emissions (m tonnes)]"
-                      name="Total CO₂ emissions (m tonnes)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      name="CO₂ emissions from all voyages between ports under a MS jurisdic"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
-                      name="CO₂ emissions from all voyages which departed from ports under a"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction "
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      name="CO₂ emissions which occurred within ports under a MS jurisdictio"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      name="CO₂ emissions assigned to Passenger transport (m tonnes)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      name="CO₂ emissions assigned to Freight transport (m tonnes)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      name="CO₂ emissions assigned to On laden (m tonnes)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual Total time spent at sea (hours)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual Total time spent at sea (hours)]"
-                      name="Annual Total time spent at sea (hours)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      name="Annual average Fuel consumption per distance (kg / n mile)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      name="Annual average Fuel consumption per transport work (mass) (g / m"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      name="Annual average Fuel consumption per transport work (volume) (g /"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      name="Annual average Fuel consumption per transport work (dwt) (g / dw"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      name="Annual average Fuel consumption per transport work (pax) (g / pa"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      name="Annual average Fuel consumption per transport work (freight) (g "
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / "
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ "
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Through ice (n miles)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Through ice (n miles)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Through ice (n miles)]"
-                      name="Through ice (n miles)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea (hours)]"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total time spent at sea (hours)]"
-                      name="Total time spent at sea (hours)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea through ice (hours)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Total time spent at sea through ice (hours)]"
-                      name="Total time spent at sea through ice (hours)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      name="Fuel consumption per distance on laden voyages (kg / n mile)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      name="Fuel consumption per transport work (mass) on laden voyages (g /"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      name="Fuel consumption per transport work (volume) on laden voyages (g"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      name="Fuel consumption per transport work (dwt) on laden voyages (g / "
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      name="Fuel consumption per transport work (pax) on laden voyages (g / "
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      name="Fuel consumption per transport work (freight) on laden voyages ("
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ "
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      name="CO₂ emissions per transport work (freight) on laden voyages (g C"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Additional information to facilitate the understanding of the re]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Additional information to facilitate the understanding of the re]"
-                      name="Additional information to facilitate the understanding of the re"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
-                      name="Average density of the cargo transported (m tonnes / m³)"
+                      externalMetadataColumnId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Discount]"
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].Columns[Discount]"
+                      name="Discount"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[IMO Number]"
-                      dataType="wstr"
-                      length="255"
-                      name="IMO Number" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Name]"
-                      dataType="wstr"
-                      length="255"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Ship type]"
-                      dataType="wstr"
-                      length="255"
-                      name="Ship type" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Reporting Period]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Id]"
                       dataType="r8"
-                      name="Reporting Period" />
+                      name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Technical efficiency]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Consignor]"
                       dataType="wstr"
                       length="255"
-                      name="Technical efficiency" />
+                      name="Consignor" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Port of Registry]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[City]"
                       dataType="wstr"
                       length="255"
-                      name="Port of Registry" />
+                      name="City" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Home Port]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Country]"
                       dataType="wstr"
                       length="255"
-                      name="Home Port" />
+                      name="Country" />
                     <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Ice Class]"
-                      dataType="wstr"
-                      length="255"
-                      name="Ice Class" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Number]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Number" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Name]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Name" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier NAB]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier NAB" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Address]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Address" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier City]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier City" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Accreditation number]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Accreditation number" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Verifier Country]"
-                      dataType="wstr"
-                      length="255"
-                      name="Verifier Country" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[A]"
-                      dataType="wstr"
-                      length="255"
-                      name="A" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[B]"
-                      dataType="wstr"
-                      length="255"
-                      name="B" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[C]"
-                      dataType="wstr"
-                      length="255"
-                      name="C" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[D]"
-                      dataType="wstr"
-                      length="255"
-                      name="D" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total fuel consumption (m tonnes)]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Discount]"
                       dataType="r8"
-                      name="Total fuel consumption (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumptions assigned to On laden (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total CO₂ emissions (m tonnes)]"
-                      dataType="r8"
-                      name="Total CO₂ emissions (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      dataType="r8"
-                      name="CO₂ emissions from all voyages between ports under a MS jurisdic" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages which departed from ports under a]"
-                      dataType="r8"
-                      name="CO₂ emissions from all voyages which departed from ports under a" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      dataType="r8"
-                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      dataType="r8"
-                      name="CO₂ emissions which occurred within ports under a MS jurisdictio" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions assigned to Passenger transport (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions assigned to Freight transport (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions assigned to On laden (m tonnes)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual Total time spent at sea (hours)]"
-                      dataType="r8"
-                      name="Annual Total time spent at sea (hours)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      dataType="r8"
-                      name="Annual average Fuel consumption per distance (kg / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      dataType="r8"
-                      name="Annual average Fuel consumption per transport work (mass) (g / m" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (volume) (g /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (dwt) (g / dw" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (pax) (g / pa" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average Fuel consumption per transport work (freight) (g " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      dataType="r8"
-                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      dataType="r8"
-                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      dataType="wstr"
-                      length="255"
-                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Through ice (n miles)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Through ice (n miles)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea (hours)]"
-                      dataType="r8"
-                      name="Total time spent at sea (hours)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Total time spent at sea through ice (hours)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Total time spent at sea through ice (hours)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per distance on laden voyages (kg / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (mass) on laden voyages (g /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (volume) on laden voyages (g" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (dwt) on laden voyages (g / " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (pax) on laden voyages (g / " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      dataType="wstr"
-                      length="255"
-                      name="Fuel consumption per transport work (freight) on laden voyages (" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ " />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      dataType="wstr"
-                      length="255"
-                      name="CO₂ emissions per transport work (freight) on laden voyages (g C" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Additional information to facilitate the understanding of the re]"
-                      dataType="wstr"
-                      length="255"
-                      name="Additional information to facilitate the understanding of the re" />
-                    <externalMetadataColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Output].ExternalColumns[Average density of the cargo transported (m tonnes / m³)]"
-                      dataType="wstr"
-                      length="255"
-                      name="Average density of the cargo transported (m tonnes / m³)" />
+                      name="Discount" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1853,346 +451,33 @@
                   name="Excel Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[IMO Number]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[IMO Number]"
-                      name="IMO Number" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Name]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Name]"
-                      name="Name" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Ship type]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Ship type]"
-                      name="Ship type" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Reporting Period]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Id]"
                       dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Reporting Period]"
-                      name="Reporting Period" />
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Id]"
+                      name="Id" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Technical efficiency]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Consignor]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Technical efficiency]"
-                      name="Technical efficiency" />
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Consignor]"
+                      name="Consignor" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Port of Registry]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[City]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Port of Registry]"
-                      name="Port of Registry" />
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[City]"
+                      name="City" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Home Port]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Country]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Home Port]"
-                      name="Home Port" />
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Country]"
+                      name="Country" />
                     <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Ice Class]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Ice Class]"
-                      name="Ice Class" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Number]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Number]"
-                      name="Verifier Number" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Name]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Name]"
-                      name="Verifier Name" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier NAB]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier NAB]"
-                      name="Verifier NAB" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Address]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Address]"
-                      name="Verifier Address" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier City]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier City]"
-                      name="Verifier City" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Accreditation number]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Accreditation number]"
-                      name="Verifier Accreditation number" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Country]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Verifier Country]"
-                      name="Verifier Country" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[A]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[A]"
-                      name="A" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[B]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[B]"
-                      name="B" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[C]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[C]"
-                      name="C" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[D]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[D]"
-                      name="D" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total fuel consumption (m tonnes)]"
+                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Discount]"
                       dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total fuel consumption (m tonnes)]"
-                      name="Total fuel consumption (m tonnes)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumptions assigned to On laden (m tonnes)]"
-                      name="Fuel consumptions assigned to On laden (m tonnes)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total CO₂ emissions (m tonnes)]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total CO₂ emissions (m tonnes)]"
-                      name="Total CO₂ emissions (m tonnes)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages between ports under a MS jurisdic]"
-                      name="CO₂ emissions from all voyages between ports under a MS jurisdic" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages which departed from ports under a]"
-                      name="CO₂ emissions from all voyages which departed from ports under a" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions from all voyages to ports under a MS jurisdiction ]"
-                      name="CO₂ emissions from all voyages to ports under a MS jurisdiction " />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions which occurred within ports under a MS jurisdictio]"
-                      name="CO₂ emissions which occurred within ports under a MS jurisdictio" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Passenger transport (m tonnes)]"
-                      name="CO₂ emissions assigned to Passenger transport (m tonnes)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to Freight transport (m tonnes)]"
-                      name="CO₂ emissions assigned to Freight transport (m tonnes)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions assigned to On laden (m tonnes)]"
-                      name="CO₂ emissions assigned to On laden (m tonnes)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual Total time spent at sea (hours)]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual Total time spent at sea (hours)]"
-                      name="Annual Total time spent at sea (hours)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per distance (kg / n mile)]"
-                      name="Annual average Fuel consumption per distance (kg / n mile)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (mass) (g / m]"
-                      name="Annual average Fuel consumption per transport work (mass) (g / m" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (volume) (g /]"
-                      name="Annual average Fuel consumption per transport work (volume) (g /" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (dwt) (g / dw]"
-                      name="Annual average Fuel consumption per transport work (dwt) (g / dw" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (pax) (g / pa]"
-                      name="Annual average Fuel consumption per transport work (pax) (g / pa" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average Fuel consumption per transport work (freight) (g ]"
-                      name="Annual average Fuel consumption per transport work (freight) (g " />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per distance (kg CO₂ / n mile)]"
-                      name="Annual average CO₂ emissions per distance (kg CO₂ / n mile)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (mass) (g CO₂ / ]"
-                      name="Annual average CO₂ emissions per transport work (mass) (g CO₂ / " />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (volume) (g CO₂ ]"
-                      name="Annual average CO₂ emissions per transport work (volume) (g CO₂ " />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d]"
-                      name="Annual average CO₂ emissions per transport work (dwt) (g CO₂ / d" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (pax) (g CO₂ / p]"
-                      name="Annual average CO₂ emissions per transport work (pax) (g CO₂ / p" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Annual average CO₂ emissions per transport work (freight) (g CO₂]"
-                      name="Annual average CO₂ emissions per transport work (freight) (g CO₂" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Through ice (n miles)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Through ice (n miles)]"
-                      name="Through ice (n miles)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total time spent at sea (hours)]"
-                      dataType="r8"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total time spent at sea (hours)]"
-                      name="Total time spent at sea (hours)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total time spent at sea through ice (hours)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Total time spent at sea through ice (hours)]"
-                      name="Total time spent at sea through ice (hours)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per distance on laden voyages (kg / n mile)]"
-                      name="Fuel consumption per distance on laden voyages (kg / n mile)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (mass) on laden voyages (g /]"
-                      name="Fuel consumption per transport work (mass) on laden voyages (g /" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (volume) on laden voyages (g]"
-                      name="Fuel consumption per transport work (volume) on laden voyages (g" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (dwt) on laden voyages (g / ]"
-                      name="Fuel consumption per transport work (dwt) on laden voyages (g / " />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (pax) on laden voyages (g / ]"
-                      name="Fuel consumption per transport work (pax) on laden voyages (g / " />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Fuel consumption per transport work (freight) on laden voyages (]"
-                      name="Fuel consumption per transport work (freight) on laden voyages (" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)]"
-                      name="CO₂ emissions per distance on laden voyages (kg CO₂ / n mile)" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (mass) on laden voyages (g CO₂ ]"
-                      name="CO₂ emissions per transport work (mass) on laden voyages (g CO₂ " />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (volume) on laden voyages (g CO]"
-                      name="CO₂ emissions per transport work (volume) on laden voyages (g CO" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /]"
-                      name="CO₂ emissions per transport work (dwt) on laden voyages (g CO₂ /" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /]"
-                      name="CO₂ emissions per transport work (pax) on laden voyages (g CO₂ /" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[CO₂ emissions per transport work (freight) on laden voyages (g C]"
-                      name="CO₂ emissions per transport work (freight) on laden voyages (g C" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Additional information to facilitate the understanding of the re]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Additional information to facilitate the understanding of the re]"
-                      name="Additional information to facilitate the understanding of the re" />
-                    <outputColumn
-                      refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Average density of the cargo transported (m tonnes / m³)]"
-                      name="Average density of the cargo transported (m tonnes / m³)" />
+                      lineageId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[Discount]"
+                      name="Discount" />
                     <outputColumn
                       refId="Package\Load_Consignor\Load_Consignor.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -7390,7 +5675,7 @@
           TopLeft="1113.99998340011,616.399990814924" />
         <EdgeLayout
           Id="Package\Load_Consignor.Paths[Excel Source Output]"
-          TopLeft="1176.29998351187,463.59999371171">
+          TopLeft="1176.29998351186,463.59999371171">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
