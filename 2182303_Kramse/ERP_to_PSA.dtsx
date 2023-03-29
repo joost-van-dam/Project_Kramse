@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{89314AF7-A6FF-4E72-8712-E25048EB2E5B}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{01901E3C-C1BC-4132-A468-F74E9963CC19}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -49,7 +49,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{4E16262A-4797-4FA4-867C-DBFD461C947C}"
-          SQLTask:SqlStatementSource="USE [Kramse_ERP]&#xA;GO&#xA;&#xA;CREATE OR ALTER VIEW [dbo].[Trips_Shipments]&#xA;AS&#xA;SELECT&#xA;&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].VS_ShipId as ShipId&#xA;, &#x9;&#x9;&#x9;Consignor.Id&#x9;&#x9;&#x9;&#x9;as ConsignorId&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].VV_VoyageId as TripId&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].VPS_PortIdStart as PortIdStart&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Shipment].PortIdFrom as PortIdCurrent&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Shipment].PortIdTo as PortIdNext&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].V_PortIdEnd as PortIdEnd&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Shipment].ShipmentId&#xA;, &#x9;&#x9;&#x9;[KramseTPS_v7_Item].item_key&#x9;as ItemId&#xA;,&#x9;&#x9;&#x9;Container_v3.Id&#x9;&#x9;&#x9;&#x9;as ContainerTypeId&#xA;, &#x9;&#x9;&#x9;[KramseTPS_v7_ShipmentDetail].LoadingTeu as CurrentNumberOfTeu&#xA;--, &#x9;&#x9;&#x9;ShipmentDetails.ContainerStart&#xA;--, &#x9;&#x9;&#x9;ShipmentDetails.ContainerEnd&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_VoyagePort].Vp_Traject_Distance as Distance&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateDepart as Depart&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateArrival as Arrival&#xA;&#x9;&#x9;&#x9;&#xA;FROM [KramseTPS_v7_Shipment]&#xA;INNER JOIN [KramseTPS_v7_Voyage]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON VoyageId = [KramseTPS_v7_Voyage].VV_VoyageId&#xA;INNER JOIN [Consignor]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_Shipment].ConsignorId = [Consignor].Id&#xA;INNER JOIN [KramseTPS_v7_ShipmentDetail]&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_ShipmentDetail].ShipmentId = [KramseTPS_v7_Shipment].ShipmentId&#xA;INNER JOIN [KramseTPS_v7_Item]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_ShipmentDetail].Item = [KramseTPS_v7_Item].item_key&#xA;INNER JOIN [Container_v3]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [Container_v3].Id = [KramseTPS_v7_ShipmentDetail].ContainertypeId&#xA;INNER JOIN [KramseTPS_v7_VoyagePort]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_VoyagePort].VV_VoyageId = [KramseTPS_v7_Voyage].VV_VoyageId&#xA;&#x9;AND [KramseTPS_v7_Shipment].PortIdFrom = [KramseTPS_v7_VoyagePort].VP_PortIdCurrent&#xA;&#x9;AND [KramseTPS_v7_Shipment].PortIdTo = [KramseTPS_v7_VoyagePort].Vp_PortIdNext&#xA;LEFT JOIN [KramseTPS_v7_VoyagePort] as NextVoyage&#x9;&#x9;&#x9;ON [KramseTPS_v7_VoyagePort].VV_VoyageId = NextVoyage.VV_VoyageId&#xA;&#x9;AND [KramseTPS_v7_VoyagePort].Vp_PortIdNext = NextVoyage.VP_PortIdCurrent&#xA;&#x9;&#xA;GROUP BY [KramseTPS_v7_Shipment].VoyageId&#xA;, VS_ShipId&#xA;, [KramseTPS_v7_Voyage].VV_VoyageId&#xA;, Consignor.id&#xA;, [KramseTPS_v7_Shipment].ShipmentId&#xA;, [KramseTPS_v7_Item].item_key&#xA;, Container_v3.Id&#xA;, [KramseTPS_v7_ShipmentDetail].LoadingTeu&#xA;--, shipmentdetails.containerstart&#xA;--, shipmentdetails.containerend&#xA;, [KramseTPS_v7_Shipment].PortIdFrom&#xA;, [KramseTPS_v7_Shipment].PortIdTo&#xA;, [KramseTPS_v7_Voyage].VPS_PortIdStart&#xA;, [KramseTPS_v7_Voyage].V_PortIdEnd&#xA;, [KramseTPS_v7_VoyagePort].Vp_Traject_Distance&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateDepart&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateArrival&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="CREATE OR ALTER VIEW [dbo].[Trips_Shipments]&#xA;AS&#xA;SELECT&#xA;&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].VS_ShipId as ShipId&#xA;, &#x9;&#x9;&#x9;Consignor.Id&#x9;&#x9;&#x9;&#x9;as ConsignorId&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].VV_VoyageId as TripId&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].VPS_PortIdStart as PortIdStart&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Shipment].PortIdFrom as PortIdCurrent&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Shipment].PortIdTo as PortIdNext&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Voyage].V_PortIdEnd as PortIdEnd&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_Shipment].ShipmentId&#xA;, &#x9;&#x9;&#x9;[KramseTPS_v7_Item].item_key&#x9;as ItemId&#xA;,&#x9;&#x9;&#x9;Container_v3.Id&#x9;&#x9;&#x9;&#x9;as ContainerTypeId&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_ShipmentDetail].Total as CurrentNumberOfContainers&#xA;, &#x9;&#x9;&#x9;[KramseTPS_v7_ShipmentDetail].LoadingTeu as CurrentNumberOfTeu&#xA;--, &#x9;&#x9;&#x9;ShipmentDetails.ContainerStart&#xA;--, &#x9;&#x9;&#x9;ShipmentDetails.ContainerEnd&#xA;,&#x9;&#x9;&#x9;[KramseTPS_v7_VoyagePort].Vp_Traject_Distance as Distance&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateDepart as Depart&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateArrival as Arrival&#xA;&#x9;&#x9;&#x9;&#xA;FROM [KramseTPS_v7_Shipment]&#xA;INNER JOIN [KramseTPS_v7_Voyage]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON VoyageId = [KramseTPS_v7_Voyage].VV_VoyageId&#xA;INNER JOIN [Consignor]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_Shipment].ConsignorId = [Consignor].Id&#xA;INNER JOIN [KramseTPS_v7_ShipmentDetail]&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_ShipmentDetail].ShipmentId = [KramseTPS_v7_Shipment].ShipmentId&#xA;INNER JOIN [KramseTPS_v7_Item]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_ShipmentDetail].Item = [KramseTPS_v7_Item].item_key&#xA;INNER JOIN [Container_v3]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [Container_v3].Id = [KramseTPS_v7_ShipmentDetail].ContainertypeId&#xA;INNER JOIN [KramseTPS_v7_VoyagePort]&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;ON [KramseTPS_v7_VoyagePort].VV_VoyageId = [KramseTPS_v7_Voyage].VV_VoyageId&#xA;&#x9;AND [KramseTPS_v7_Shipment].PortIdFrom = [KramseTPS_v7_VoyagePort].VP_PortIdCurrent&#xA;&#x9;AND [KramseTPS_v7_Shipment].PortIdTo = [KramseTPS_v7_VoyagePort].Vp_PortIdNext&#xA;LEFT JOIN [KramseTPS_v7_VoyagePort] as NextVoyage&#x9;&#x9;&#x9;ON [KramseTPS_v7_VoyagePort].VV_VoyageId = NextVoyage.VV_VoyageId&#xA;&#x9;AND [KramseTPS_v7_VoyagePort].Vp_PortIdNext = NextVoyage.VP_PortIdCurrent&#xA;&#x9;&#xA;GROUP BY [KramseTPS_v7_Shipment].VoyageId&#xA;, VS_ShipId&#xA;, [KramseTPS_v7_Voyage].VV_VoyageId&#xA;, Consignor.id&#xA;, [KramseTPS_v7_Shipment].ShipmentId&#xA;, [KramseTPS_v7_Item].item_key&#xA;, Container_v3.Id&#xA;, [KramseTPS_v7_ShipmentDetail].Total&#xA;, [KramseTPS_v7_ShipmentDetail].LoadingTeu&#xA;--, shipmentdetails.containerstart&#xA;--, shipmentdetails.containerend&#xA;, [KramseTPS_v7_Shipment].PortIdFrom&#xA;, [KramseTPS_v7_Shipment].PortIdTo&#xA;, [KramseTPS_v7_Voyage].VPS_PortIdStart&#xA;, [KramseTPS_v7_Voyage].V_PortIdEnd&#xA;, [KramseTPS_v7_VoyagePort].Vp_Traject_Distance&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateDepart&#xA;, [KramseTPS_v7_VoyagePort].Vp_LegDateArrival&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1485,6 +1485,12 @@
                       cachedName="CurrentNumberOfTeu"
                       externalMetadataColumnId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfTeu]"
                       lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfTeu]" />
+                    <inputColumn
+                      refId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].Columns[CurrentNumberOfContainers]"
+                      cachedDataType="i8"
+                      cachedName="CurrentNumberOfContainers"
+                      externalMetadataColumnId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfContainers]"
+                      lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfContainers]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1544,6 +1550,10 @@
                       refId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfTeu]"
                       dataType="i4"
                       name="CurrentNumberOfTeu" />
+                    <externalMetadataColumn
+                      refId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfContainers]"
+                      dataType="i4"
+                      name="CurrentNumberOfContainers" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1759,6 +1769,15 @@
                       lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfTeu]"
                       name="CurrentNumberOfTeu"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfContainers]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].ExternalColumns[CurrentNumberOfContainers]"
+                      lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfContainers]"
+                      name="CurrentNumberOfContainers"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1818,6 +1837,10 @@
                       refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].ExternalColumns[CurrentNumberOfTeu]"
                       dataType="i4"
                       name="CurrentNumberOfTeu" />
+                    <externalMetadataColumn
+                      refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].ExternalColumns[CurrentNumberOfContainers]"
+                      dataType="i8"
+                      name="CurrentNumberOfContainers" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1875,6 +1898,11 @@
                       dataType="i4"
                       lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[ContainerTypeId]"
                       name="ContainerTypeId" />
+                    <outputColumn
+                      refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[CurrentNumberOfContainers]"
+                      dataType="i8"
+                      lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[CurrentNumberOfContainers]"
+                      name="CurrentNumberOfContainers" />
                     <outputColumn
                       refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[CurrentNumberOfTeu]"
                       dataType="i4"
@@ -5541,7 +5569,7 @@ where [refTable].[Name] = ?</property>
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Load_F_Shipments"
-          TopLeft="743.956060158381,526.415595587633" />
+          TopLeft="744.340675551373,526.415595587633" />
         <NodeLayout
           Size="172,41.6"
           Id="Package\Load_F_VoyagePort"
@@ -5722,9 +5750,9 @@ where [refTable].[Name] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="421.88108570132,408.391351541449"
+              EndConnector="422.265701094312,408.391351541449"
               Start="0,0"
-              End="421.88108570132,400.891351541449">
+              End="422.265701094312,400.891351541449">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5735,13 +5763,13 @@ where [refTable].[Name] = ?</property>
                     Point2="0,256.537804768201"
                     Point3="4,256.537804768201" />
                   <mssgle:LineSegment
-                    End="417.88108570132,256.537804768201" />
+                    End="418.265701094312,256.537804768201" />
                   <mssgle:CubicBezierSegment
-                    Point1="417.88108570132,256.537804768201"
-                    Point2="421.88108570132,256.537804768201"
-                    Point3="421.88108570132,260.537804768201" />
+                    Point1="418.265701094312,256.537804768201"
+                    Point2="422.265701094312,256.537804768201"
+                    Point3="422.265701094312,260.537804768201" />
                   <mssgle:LineSegment
-                    End="421.88108570132,400.891351541449" />
+                    End="422.265701094312,400.891351541449" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5858,9 +5886,9 @@ where [refTable].[Name] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="503.673272115322,284.768453313786"
+              EndConnector="504.057887508314,284.768453313786"
               Start="0,0"
-              End="503.673272115322,277.268453313786">
+              End="504.057887508314,277.268453313786">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5871,13 +5899,13 @@ where [refTable].[Name] = ?</property>
                     Point2="0,215.751552148146"
                     Point3="4,215.751552148146" />
                   <mssgle:LineSegment
-                    End="499.673272115322,215.751552148146" />
+                    End="500.057887508314,215.751552148146" />
                   <mssgle:CubicBezierSegment
-                    Point1="499.673272115322,215.751552148146"
-                    Point2="503.673272115322,215.751552148146"
-                    Point3="503.673272115322,219.751552148146" />
+                    Point1="500.057887508314,215.751552148146"
+                    Point2="504.057887508314,215.751552148146"
+                    Point3="504.057887508314,219.751552148146" />
                   <mssgle:LineSegment
-                    End="503.673272115322,277.268453313786" />
+                    End="504.057887508314,277.268453313786" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5892,9 +5920,9 @@ where [refTable].[Name] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="353.305989979914,282.724682207775"
+              EndConnector="353.690605372906,282.724682207775"
               Start="0,0"
-              End="353.305989979914,275.224682207775">
+              End="353.690605372906,275.224682207775">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5905,13 +5933,13 @@ where [refTable].[Name] = ?</property>
                     Point2="0,125.295898845717"
                     Point3="4,125.295898845717" />
                   <mssgle:LineSegment
-                    End="349.305989979914,125.295898845717" />
+                    End="349.690605372906,125.295898845717" />
                   <mssgle:CubicBezierSegment
-                    Point1="349.305989979914,125.295898845717"
-                    Point2="353.305989979914,125.295898845717"
-                    Point3="353.305989979914,129.295898845717" />
+                    Point1="349.690605372906,125.295898845717"
+                    Point2="353.690605372906,125.295898845717"
+                    Point3="353.690605372906,129.295898845717" />
                   <mssgle:LineSegment
-                    End="353.305989979914,275.224682207775" />
+                    End="353.690605372906,275.224682207775" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5926,9 +5954,9 @@ where [refTable].[Name] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="169.173385191943,281.579229794254"
+              EndConnector="169.558000584934,281.579229794254"
               Start="0,0"
-              End="169.173385191943,274.079229794254">
+              End="169.558000584934,274.079229794254">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5939,13 +5967,13 @@ where [refTable].[Name] = ?</property>
                     Point2="0,151.063591195084"
                     Point3="4,151.063591195084" />
                   <mssgle:LineSegment
-                    End="165.173385191943,151.063591195084" />
+                    End="165.558000584934,151.063591195084" />
                   <mssgle:CubicBezierSegment
-                    Point1="165.173385191943,151.063591195084"
-                    Point2="169.173385191943,151.063591195084"
-                    Point3="169.173385191943,155.063591195084" />
+                    Point1="165.558000584934,151.063591195084"
+                    Point2="169.558000584934,151.063591195084"
+                    Point3="169.558000584934,155.063591195084" />
                   <mssgle:LineSegment
-                    End="169.173385191943,274.079229794254" />
+                    End="169.558000584934,274.079229794254" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5956,30 +5984,18 @@ where [refTable].[Name] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="884.653009343104,242.830302988501">
+          TopLeft="863.487318637715,242.830302988501">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.9826634704374,283.585292599132"
+              EndConnector="0,283.585292599132"
               Start="0,0"
-              End="-22.9826634704374,276.085292599132">
+              End="0,276.085292599132">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,174.138807673907" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,174.138807673907"
-                    Point2="0,178.138807673907"
-                    Point3="-4,178.138807673907" />
-                  <mssgle:LineSegment
-                    End="-18.9826634704374,178.138807673907" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.9826634704374,178.138807673907"
-                    Point2="-22.9826634704374,178.138807673907"
-                    Point3="-22.9826634704374,182.138807673907" />
-                  <mssgle:LineSegment
-                    End="-22.9826634704374,276.085292599132" />
+                    End="0,276.085292599132" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5994,9 +6010,9 @@ where [refTable].[Name] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-200.762887321586,279.682264369512"
+              EndConnector="-200.378271928594,279.682264369512"
               Start="0,0"
-              End="-200.762887321586,272.182264369512">
+              End="-200.378271928594,272.182264369512">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -6007,13 +6023,13 @@ where [refTable].[Name] = ?</property>
                     Point2="0,211.89805943687"
                     Point3="-4,211.89805943687" />
                   <mssgle:LineSegment
-                    End="-196.762887321586,211.89805943687" />
+                    End="-196.378271928594,211.89805943687" />
                   <mssgle:CubicBezierSegment
-                    Point1="-196.762887321586,211.89805943687"
-                    Point2="-200.762887321586,211.89805943687"
-                    Point3="-200.762887321586,215.89805943687" />
+                    Point1="-196.378271928594,211.89805943687"
+                    Point2="-200.378271928594,211.89805943687"
+                    Point3="-200.378271928594,215.89805943687" />
                   <mssgle:LineSegment
-                    End="-200.762887321586,272.182264369512" />
+                    End="-200.378271928594,272.182264369512" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6247,7 +6263,7 @@ where [refTable].[Name] = ?</property>
     design-time-name="Package\Load_F_Shipments">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Load_F_Shipments\Load_F_Shipments"
@@ -6287,9 +6303,7 @@ where [refTable].[Name] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

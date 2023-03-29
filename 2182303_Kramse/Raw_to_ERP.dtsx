@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="87"
-  DTS:VersionGUID="{82A67BA1-D44E-4E7E-9732-FCFE14597522}">
+  DTS:VersionBuild="88"
+  DTS:VersionGUID="{37AC1836-5A5B-42BB-9750-F75BA3F5C9FE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -10076,46 +10076,46 @@ where [refTable].[ISO2] = ?</property>
           version="1">
           <components>
             <component
-              refId="Package\Load_ShipmentDetail\Derived Column"
+              refId="Package\Load_ShipmentDetail\Calculate Loading Teu"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
+              name="Calculate Loading Teu"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Load_ShipmentDetail\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load_ShipmentDetail\Derived Column.Inputs[Derived Column Input].Columns[Total]"
+                      refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Inputs[Derived Column Input].Columns[Total]"
                       cachedDataType="i8"
                       cachedName="Total"
                       lineageId="Package\Load_ShipmentDetail\Derived Column Total.Outputs[Derived Column Output].Columns[Total]" />
                     <inputColumn
-                      refId="Package\Load_ShipmentDetail\Derived Column.Inputs[Derived Column Input].Columns[Teu]"
+                      refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Inputs[Derived Column Input].Columns[Teu]"
                       cachedDataType="i4"
                       cachedName="Teu"
-                      lineageId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Match Output].Columns[Teu]" />
+                      lineageId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Match Output].Columns[Teu]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Load_ShipmentDetail\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load_ShipmentDetail\Calculate Loading Teu.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Output].Columns[LoadingTeu]"
+                      refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Output].Columns[LoadingTeu]"
                       dataType="i8"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Output].Columns[LoadingTeu]"
+                      lineageId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Output].Columns[LoadingTeu]"
                       name="LoadingTeu"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -10123,7 +10123,7 @@ where [refTable].[ISO2] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Load_ShipmentDetail\Derived Column Total.Outputs[Derived Column Output].Columns[Total]} * #{Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Match Output].Columns[Teu]}</property>
+                          name="Expression">#{Package\Load_ShipmentDetail\Derived Column Total.Outputs[Derived Column Output].Columns[Total]} * #{Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Match Output].Columns[Teu]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -10136,23 +10136,23 @@ where [refTable].[ISO2] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Load_ShipmentDetail\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load_ShipmentDetail\Calculate Loading Teu.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -10456,7 +10456,7 @@ where [refTable].[ISO2] = ?</property>
                       cachedDataType="i8"
                       cachedName="LoadingTeu"
                       externalMetadataColumnId="Package\Load_ShipmentDetail\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input].ExternalColumns[LoadingTeu]"
-                      lineageId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Output].Columns[LoadingTeu]" />
+                      lineageId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Output].Columns[LoadingTeu]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10677,11 +10677,11 @@ where [refTable].[ISO2] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load_ShipmentDetail\Lookup"
+              refId="Package\Load_ShipmentDetail\Lookup Teu"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup"
+              name="Lookup Teu"
               usesDispositions="true"
               version="6">
               <properties>
@@ -10745,7 +10745,7 @@ where [refTable].[Id] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load_ShipmentDetail\Lookup.Connections[OleDbConnection]"
+                  refId="Package\Load_ShipmentDetail\Lookup Teu.Connections[OleDbConnection]"
                   connectionManagerID="{4E16262A-4797-4FA4-867C-DBFD461C947C}:external"
                   connectionManagerRefId="Project.ConnectionManagers[DESKTOP-44HRUJ4.Kramse_ERP]"
                   description="Connection manager used to access lookup data."
@@ -10753,11 +10753,11 @@ where [refTable].[Id] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load_ShipmentDetail\Lookup.Inputs[Lookup Input]"
+                  refId="Package\Load_ShipmentDetail\Lookup Teu.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load_ShipmentDetail\Lookup.Inputs[Lookup Input].Columns[ContainertypeId]"
+                      refId="Package\Load_ShipmentDetail\Lookup Teu.Inputs[Lookup Input].Columns[ContainertypeId]"
                       cachedDataType="i4"
                       cachedName="ContainertypeId"
                       lineageId="Package\Load_ShipmentDetail\Load_ShipmentDetail.Outputs[OLE DB Source Output].Columns[ContainertypeId]">
@@ -10778,18 +10778,18 @@ where [refTable].[Id] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Match Output]"
+                  refId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Load_ShipmentDetail\Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load_ShipmentDetail\Lookup Teu.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Match Output].Columns[Teu]"
+                      refId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Match Output].Columns[Teu]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Match Output].Columns[Teu]"
+                      lineageId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Match Output].Columns[Teu]"
                       name="Teu"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -10803,30 +10803,30 @@ where [refTable].[Id] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup No Match Output]"
+                  refId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Load_ShipmentDetail\Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load_ShipmentDetail\Lookup Teu.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Error Output]"
+                  refId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Load_ShipmentDetail\Lookup.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load_ShipmentDetail\Lookup Teu.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -10843,19 +10843,19 @@ where [refTable].[Id] = ?</property>
               startId="Package\Load_ShipmentDetail\Derived Column Min &amp; Max.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load_ShipmentDetail.Paths[Derived Column Output1]"
-              endId="Package\Load_ShipmentDetail\Lookup.Inputs[Lookup Input]"
+              endId="Package\Load_ShipmentDetail\Lookup Teu.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Load_ShipmentDetail\Derived Column Total.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load_ShipmentDetail.Paths[Derived Column Output2]"
               endId="Package\Load_ShipmentDetail\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\Load_ShipmentDetail\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\Load_ShipmentDetail\Calculate Loading Teu.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load_ShipmentDetail.Paths[Lookup Match Output]"
-              endId="Package\Load_ShipmentDetail\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\Load_ShipmentDetail\Calculate Loading Teu.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Load_ShipmentDetail\Lookup.Outputs[Lookup Match Output]" />
+              startId="Package\Load_ShipmentDetail\Lookup Teu.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load_ShipmentDetail.Paths[OLE DB Source Output]"
               endId="Package\Load_ShipmentDetail\Derived Column Min &amp; Max.Inputs[Derived Column Input]"
@@ -14534,16 +14534,16 @@ where [refTable].[Id] = ?</property>
           Id="Package\Load_ShipmentDetail\Derived Column Total"
           TopLeft="1150.49998285621,224.999996647239" />
         <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Load_ShipmentDetail\Lookup"
+          Size="133.6,41.6"
+          Id="Package\Load_ShipmentDetail\Lookup Teu"
           TopLeft="1190.65936659026,319.489183711795" />
         <NodeLayout
           Size="225.6,41.6"
           Id="Package\Load_ShipmentDetail\KramseTPS_v7_ShipmentDetail"
           TopLeft="1188.30218184848,467.214280764875" />
         <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Load_ShipmentDetail\Derived Column"
+          Size="182.4,41.6"
+          Id="Package\Load_ShipmentDetail\Calculate Loading Teu"
           TopLeft="1499.99997764826,404.99999396503" />
         <EdgeLayout
           Id="Package\Load_ShipmentDetail.Paths[Derived Column Output]"
@@ -14576,9 +14576,7 @@ where [refTable].[Id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.1644726562501,24.9499993927776,41.1289453125,9.55859375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14612,44 +14610,42 @@ where [refTable].[Id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-9.5644727158525,32.9499992735685,41.1289453125,9.55859375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load_ShipmentDetail.Paths[Lookup Match Output]"
-          TopLeft="1247.05936659026,361.089183711795">
+          TopLeft="1257.45936659026,361.089183711795">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="329.740611057998,43.9108102532348"
+              EndConnector="333.740611058,43.910810253235"
               Start="0,0"
-              End="329.740611057998,36.4108102532348">
+              End="333.740611058,36.410810253235">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.9554051266174" />
+                    End="0,17.9554051266175" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.9554051266174"
-                    Point2="0,21.9554051266174"
-                    Point3="4,21.9554051266174" />
+                    Point1="0,17.9554051266175"
+                    Point2="0,21.9554051266175"
+                    Point3="4,21.9554051266175" />
                   <mssgle:LineSegment
-                    End="325.740611057998,21.9554051266174" />
+                    End="329.740611058,21.9554051266175" />
                   <mssgle:CubicBezierSegment
-                    Point1="325.740611057998,21.9554051266174"
-                    Point2="329.740611057998,21.9554051266174"
-                    Point3="329.740611057998,25.9554051266174" />
+                    Point1="329.740611058,21.9554051266175"
+                    Point2="333.740611058,21.9554051266175"
+                    Point3="333.740611058,25.9554051266175" />
                   <mssgle:LineSegment
-                    End="329.740611057998,36.4108102532348" />
+                    End="333.740611058,36.410810253235" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="116.678918810249,26.9554051266174,147.0734765625,11.609375"
+              BoundingBox="118.67891881025,26.9554051266175,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14659,58 +14655,66 @@ where [refTable].[Id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-86.0977957997784,62.2142867998452"
+              EndConnector="-86.0977957997802,62.214286799845"
               Start="0,0"
-              End="-78.5977957997784,62.2142867998452">
+              End="-78.5977957997802,62.214286799845">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-39.0488978998892,0" />
+                    End="-39.0488978998901,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-39.0488978998892,0"
-                    Point2="-43.0488978998892,0"
-                    Point3="-43.0488978998892,4" />
+                    Point1="-39.0488978998901,0"
+                    Point2="-43.0488978998901,0"
+                    Point3="-43.0488978998901,4" />
                   <mssgle:LineSegment
-                    End="-43.0488978998892,58.2142867998452" />
+                    End="-43.0488978998901,58.214286799845" />
                   <mssgle:CubicBezierSegment
-                    Point1="-43.0488978998892,58.2142867998452"
-                    Point2="-43.0488978998892,62.2142867998452"
-                    Point3="-47.0488978998892,62.2142867998452" />
+                    Point1="-43.0488978998901,58.214286799845"
+                    Point2="-43.0488978998901,62.214286799845"
+                    Point3="-47.0488978998901,62.214286799845" />
                   <mssgle:LineSegment
-                    End="-78.5977957997784,62.2142867998452" />
+                    End="-78.5977957997802,62.214286799845" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-63.6133705561392,-15.55859375,41.1289453125,9.55859375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load_ShipmentDetail.Paths[Derived Column Output1]"
-          TopLeft="1243.77967472323,266.599996647239">
+          TopLeft="1240.49998285621,266.599996647239">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.8891870645565"
+              EndConnector="16.9593837340501,52.889187064556"
               Start="0,0"
-              End="0,45.3891870645565">
+              End="16.9593837340501,45.389187064556">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.3891870645565" />
+                    End="0,22.444593532278" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.444593532278"
+                    Point2="0,26.444593532278"
+                    Point3="4,26.444593532278" />
+                  <mssgle:LineSegment
+                    End="12.9593837340501,26.444593532278" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.9593837340501,26.444593532278"
+                    Point2="16.9593837340501,26.444593532278"
+                    Point3="16.9593837340501,30.444593532278" />
+                  <mssgle:LineSegment
+                    End="16.9593837340501,45.389187064556" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.56447265625,17.9152966572783,41.1289453125,9.55859375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14730,7 +14734,7 @@ where [refTable].[Id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_ShipmentDetail\Lookup">
+    design-time-name="Package\Load_ShipmentDetail\Lookup Teu">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>

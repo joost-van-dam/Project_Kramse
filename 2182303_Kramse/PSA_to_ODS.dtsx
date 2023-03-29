@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{CC7998BE-6BF2-486E-896B-D48126B4BF82}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{B0EF8E80-BBF2-435D-BA8D-24D035F24555}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2784,6 +2784,12 @@ where [refTable].[Shipid] = ?</property>
                       cachedName="CurrentNumberOfTeu"
                       externalMetadataColumnId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfTeu]"
                       lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfTeu]" />
+                    <inputColumn
+                      refId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].Columns[CurrentNumberOfContainers]"
+                      cachedDataType="i4"
+                      cachedName="CurrentNumberOfContainers"
+                      externalMetadataColumnId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfContainers]"
+                      lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfContainers]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2851,6 +2857,10 @@ where [refTable].[Shipid] = ?</property>
                       refId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfTeu]"
                       dataType="i4"
                       name="CurrentNumberOfTeu" />
+                    <externalMetadataColumn
+                      refId="Package\Load_F_Shipments\F_Shipments.Inputs[OLE DB Destination Input].ExternalColumns[CurrentNumberOfContainers]"
+                      dataType="i4"
+                      name="CurrentNumberOfContainers" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3151,6 +3161,15 @@ where [refTable].[Shipid] = ?</property>
                       lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfTeu]"
                       name="CurrentNumberOfTeu"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfContainers]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].ExternalColumns[CurrentNumberOfContainers]"
+                      lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].Columns[CurrentNumberOfContainers]"
+                      name="CurrentNumberOfContainers"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3210,6 +3229,10 @@ where [refTable].[Shipid] = ?</property>
                       refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].ExternalColumns[CurrentNumberOfTeu]"
                       dataType="i4"
                       name="CurrentNumberOfTeu" />
+                    <externalMetadataColumn
+                      refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Output].ExternalColumns[CurrentNumberOfContainers]"
+                      dataType="i4"
+                      name="CurrentNumberOfContainers" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3267,6 +3290,11 @@ where [refTable].[Shipid] = ?</property>
                       dataType="i4"
                       lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[ContainerTypeId]"
                       name="ContainerTypeId" />
+                    <outputColumn
+                      refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[CurrentNumberOfContainers]"
+                      dataType="i4"
+                      lineageId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[CurrentNumberOfContainers]"
+                      name="CurrentNumberOfContainers" />
                     <outputColumn
                       refId="Package\Load_F_Shipments\Load_F_Shipments.Outputs[OLE DB Source Error Output].Columns[CurrentNumberOfTeu]"
                       dataType="i4"
@@ -11856,7 +11884,7 @@ where [refTable].[Shipid] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12314,7 +12342,7 @@ where [refTable].[Shipid] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12324,7 +12352,7 @@ where [refTable].[Shipid] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
