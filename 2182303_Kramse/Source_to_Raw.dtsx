@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{78A81F27-1DFA-4B48-A555-4DAD4B8C13FA}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{C72CDA97-C47D-462F-AEFF-0B6ECFB265D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -140,7 +140,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{35E971E0-A2D8-4359-85AD-B094AC873CAF}"
-          SQLTask:SqlStatementSource="DELETE FROM MRV;&#xA;DELETE FROM Consignor;&#xA;DELETE FROM Container_v3;&#xA;DELETE FROM KramseTPS_v7_Item;&#xA;DELETE FROM KramseTPS_v7_Port;&#xA;DELETE FROM KramseTPS_v7_Ship;&#xA;DELETE FROM KramseTPS_v7_Shipment;&#xA;DELETE FROM KramseTPS_v7_Voyage;&#xA;DELETE FROM KramseTPS_v7_VoyagePort;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM MRV;&#xA;DELETE FROM Consignor;&#xA;DELETE FROM Container_v3;&#xA;DELETE FROM KramseTPS_v7_Item;&#xA;DELETE FROM KramseTPS_v7_Port;&#xA;DELETE FROM KramseTPS_v7_Ship;&#xA;DELETE FROM KramseTPS_v7_Shipment;&#xA;DELETE FROM KramseTPS_v7_ShipmentDetail;&#xA;DELETE FROM KramseTPS_v7_Voyage;&#xA;DELETE FROM KramseTPS_v7_VoyagePort;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3636,8 +3636,88 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Load_KramseTPS_v7\Rename MSC Stepnica"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Rename MSC Stepnica"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Inputs[Derived Column Input].Columns[Sh_Shipname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Shipname"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]},"æ","ae")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(Sh_Shipname,"æ","ae")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
+            <path
+              refId="Package\Load_KramseTPS_v7.Paths[Derived Column Output]"
+              endId="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Outputs[Derived Column Output]" />
             <path
               refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output]"
               endId="Package\Load_KramseTPS_v7\KramseTPS_v7_Item.Inputs[OLE DB Destination Input]"
@@ -3650,29 +3730,29 @@
               startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Port.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output2]"
-              endId="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output3]"
               endId="Package\Load_KramseTPS_v7\KramseTPS_v7_Shipment.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Shipment.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output4]"
+              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output3]"
               endId="Package\Load_KramseTPS_v7\KramseTPS_v7_Voyage.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output5]"
+              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output4]"
               endId="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_VoyagePort.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output6]"
+              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output5]"
               endId="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output6]"
+              endId="Package\Load_KramseTPS_v7\Rename MSC Stepnica.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -4972,6 +5052,148 @@
               </outputs>
             </component>
             <component
+              refId="Package\Load_MRV\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[KramseTPS_v7_Ship]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[KramseTPS_v7_Ship]) [refTable]
+where [refTable].[Sh_Shipname] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="VS_Shipid" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Shipname" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_MaxTEU" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_SpeedInKnots" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_SpeedInKm_H" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Country" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Yearcost" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Length" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sh_Width" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Load_MRV\Load_MRV.Outputs[Excel Source Output].Columns[Name]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load_MRV\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{35E971E0-A2D8-4359-85AD-B094AC873CAF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-44HRUJ4.Kramse_Raw]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load_MRV\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_MRV\Lookup.Inputs[Lookup Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\Load_MRV\Load_MRV.Outputs[Excel Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Sh_Shipname</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_MRV\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Load_MRV\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_MRV\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Load_MRV\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_MRV\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Load_MRV\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_MRV\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_MRV\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_MRV\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_MRV\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load_MRV\MRV"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -5756,27 +5978,184 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Load_MRV\Rename MSC Stepnica"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Rename MSC Stepnica"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_MRV\Rename MSC Stepnica.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_MRV\Rename MSC Stepnica.Inputs[Derived Column Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_MRV\Load_MRV.Outputs[Excel Source Output].Columns[Name]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\Load_MRV\Load_MRV.Outputs[Excel Source Output].Columns[Name]},"MSC STEPNICA","MAERSK STEPNICA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(Name,"MSC STEPNICA","MAERSK STEPNICA")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_MRV\Rename MSC Stepnica.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load_MRV\Rename MSC Stepnica.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_MRV\Rename MSC Stepnica.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load_MRV\Rename MSC Stepnica.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_MRV\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_MRV\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_MRV\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_MRV\Rename MSC Stepnica.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load_MRV\Rename Xin Beijing"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Rename Xin Beijing"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load_MRV\Rename Xin Beijing.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load_MRV\Rename Xin Beijing.Inputs[Derived Column Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load_MRV\Load_MRV.Outputs[Excel Source Output].Columns[Name]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\Load_MRV\Load_MRV.Outputs[Excel Source Output].Columns[Name]},"BEING","BEIJING")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(Name,"BEING","BEIJING")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load_MRV\Rename Xin Beijing.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load_MRV\Rename Xin Beijing.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load_MRV\Rename Xin Beijing.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load_MRV\Rename Xin Beijing.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load_MRV\Rename Xin Beijing.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load_MRV\Rename Xin Beijing.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load_MRV\Rename Xin Beijing.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load_MRV\Rename Xin Beijing.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
+              refId="Package\Load_MRV.Paths[Derived Column Output]"
+              endId="Package\Load_MRV\Rename MSC Stepnica.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Load_MRV\Rename Xin Beijing.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load_MRV.Paths[Derived Column Output1]"
+              endId="Package\Load_MRV\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Load_MRV\Rename MSC Stepnica.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Load_MRV.Paths[Excel Source Output]"
-              endId="Package\Load_MRV\MRV.Inputs[OLE DB Destination Input]"
+              endId="Package\Load_MRV\Rename Xin Beijing.Inputs[Derived Column Input]"
               name="Excel Source Output"
               startId="Package\Load_MRV\Load_MRV.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Load_MRV.Paths[Lookup Match Output]"
+              endId="Package\Load_MRV\MRV.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Load_MRV\Lookup.Outputs[Lookup Match Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{277C3890-E89F-4862-A24F-593EFB226E3B}"
-      DTS:From="Package\Execute SQL Task"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\Load_MRV" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -5801,6 +6180,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Load_KramseTPS_v7" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{74849509-6B78-48B6-B9E7-DB0F2A6D62D5}"
+      DTS:From="Package\Load_KramseTPS_v7"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Load_MRV" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -5821,79 +6208,45 @@
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\Load_Consignor"
-          TopLeft="366.923084914156,179.636367448762" />
+          TopLeft="321.634622389374,195.787882943058" />
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\Load_Container_v3"
-          TopLeft="565.769243090904,189.87879190856" />
+          TopLeft="553.173088970424,231.734853402926" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Load_KramseTPS_v7"
-          TopLeft="792.692324956053,189.87879190856" />
+          TopLeft="790.384632598102,179.242428046462" />
         <NodeLayout
           Size="128,41.6"
           Id="Package\Load_MRV"
-          TopLeft="201.538465927691,177.666670437262" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="533.501549317343,83.7515160460912">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-267.963083389652,93.9151543911708"
-              Start="0,0"
-              End="-267.963083389652,86.4151543911708">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.2131945290348" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.2131945290348"
-                    Point2="0,28.2131945290348"
-                    Point3="-4,28.2131945290348" />
-                  <mssgle:LineSegment
-                    End="-263.963083389652,28.2131945290348" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-263.963083389652,28.2131945290348"
-                    Point2="-267.963083389652,28.2131945290348"
-                    Point3="-267.963083389652,32.2131945290348" />
-                  <mssgle:LineSegment
-                    End="-267.963083389652,86.4151543911708" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="800.384632815888,295.848491127237" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="564.541549317343,83.7515160460912">
+          TopLeft="541.261549317343,83.7515160460912">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-120.818464403187,95.8848514026708"
+              EndConnector="-142.826926927968,112.036366896967"
               Start="0,0"
-              End="-120.818464403187,88.3848514026708">
+              End="-142.826926927968,104.536366896967">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.9040559364063" />
+                    End="0,34.5462741414002" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,38.9040559364063"
-                    Point2="0,42.9040559364063"
-                    Point3="-4,42.9040559364063" />
+                    Point1="0,34.5462741414002"
+                    Point2="0,38.5462741414002"
+                    Point3="-4,38.5462741414002" />
                   <mssgle:LineSegment
-                    End="-116.818464403187,42.9040559364063" />
+                    End="-138.826926927968,38.5462741414002" />
                   <mssgle:CubicBezierSegment
-                    Point1="-116.818464403187,42.9040559364063"
-                    Point2="-120.818464403187,42.9040559364063"
-                    Point3="-120.818464403187,46.9040559364063" />
+                    Point1="-138.826926927968,38.5462741414002"
+                    Point2="-142.826926927968,38.5462741414002"
+                    Point3="-142.826926927968,42.5462741414002" />
                   <mssgle:LineSegment
-                    End="-120.818464403187,88.3848514026708" />
+                    End="-142.826926927968,104.536366896967" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5904,30 +6257,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="595.581549317343,83.7515160460912">
+          TopLeft="564.541549317343,83.7515160460912">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54.5876937735611,106.127275862469"
+              EndConnector="73.0315396530806,147.983337356835"
               Start="0,0"
-              End="54.5876937735611,98.627275862469">
+              End="73.0315396530806,140.483337356835">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.4870692645718" />
+                    End="0,62.2157294998622" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,43.4870692645718"
-                    Point2="0,47.4870692645718"
-                    Point3="4,47.4870692645718" />
+                    Point1="0,62.2157294998622"
+                    Point2="0,66.2157294998622"
+                    Point3="4,66.2157294998622" />
                   <mssgle:LineSegment
-                    End="50.5876937735611,47.4870692645718" />
+                    End="69.0315396530806,66.2157294998622" />
                   <mssgle:CubicBezierSegment
-                    Point1="50.5876937735611,47.4870692645718"
-                    Point2="54.5876937735611,47.4870692645718"
-                    Point3="54.5876937735611,51.4870692645718" />
+                    Point1="69.0315396530806,66.2157294998622"
+                    Point2="73.0315396530806,66.2157294998622"
+                    Point3="73.0315396530806,70.2157294998622" />
                   <mssgle:LineSegment
-                    End="54.5876937735611,98.627275862469" />
+                    End="73.0315396530806,140.483337356835" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5942,26 +6295,48 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="254.47077563871,106.127275862469"
+              EndConnector="252.163083280759,95.4909120003711"
               Start="0,0"
-              End="254.47077563871,98.6272758624688">
+              End="252.163083280759,87.9909120003711">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.8818565348158" />
+                    End="0,24.6865702717164" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.8818565348158"
-                    Point2="0,31.8818565348158"
-                    Point3="4,31.8818565348158" />
+                    Point1="0,24.6865702717164"
+                    Point2="0,28.6865702717164"
+                    Point3="4,28.6865702717164" />
                   <mssgle:LineSegment
-                    End="250.47077563871,31.8818565348158" />
+                    End="248.163083280759,28.6865702717164" />
                   <mssgle:CubicBezierSegment
-                    Point1="250.47077563871,31.8818565348158"
-                    Point2="254.47077563871,31.8818565348158"
-                    Point3="254.47077563871,35.8818565348158" />
+                    Point1="248.163083280759,28.6865702717164"
+                    Point2="252.163083280759,28.6865702717164"
+                    Point3="252.163083280759,32.6865702717164" />
                   <mssgle:LineSegment
-                    End="254.47077563871,98.6272758624688" />
+                    End="252.163083280759,87.9909120003711" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="881.584632706995,220.842428046462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.0060630807752"
+              Start="0,0"
+              End="0,67.5060630807752">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5060630807752" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5977,15 +6352,15 @@
     design-time-name="Package\Load_Consignor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Load_Consignor\Load_Consignor"
-          TopLeft="1098.99998362362,421.99999371171" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="125.6,41.6"
           Id="Package\Load_Consignor\Consignor"
           TopLeft="1113.99998340011,616.399990814924" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Load_Consignor\Load_Consignor"
+          TopLeft="1098.99998362362,421.99999371171" />
         <EdgeLayout
           Id="Package\Load_Consignor.Paths[Excel Source Output]"
           TopLeft="1176.29998351186,463.59999371171">
@@ -6005,7 +6380,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6041,7 +6418,7 @@
     design-time-name="Package\Load_Container_v3">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\Load_Container_v3\Load_Container_v3"
@@ -6069,7 +6446,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6094,18 +6473,6 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="208,41.6"
-          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort"
-          TopLeft="1351.16664653271,280.666670054197" />
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Port"
-          TopLeft="280.666662484408,348.766662983596" />
-        <NodeLayout
-          Size="204.8,41.6"
-          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Item"
-          TopLeft="57.1666658148172,135.666664645076" />
-        <NodeLayout
           Size="227.2,41.6"
           Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Shipment"
           TopLeft="654.99999023974,201.266665181518" />
@@ -6114,13 +6481,21 @@
           Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_ShipmentDetail"
           TopLeft="851.452368264754,123.813424081596" />
         <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Port"
+          TopLeft="280.666662484408,348.766662983596" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort"
+          TopLeft="1351.16664653271,280.666670054197" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Item"
+          TopLeft="57.1666658148172,135.666664645076" />
+        <NodeLayout
           Size="174.4,41.6"
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship"
-          TopLeft="488.666659384966,272.866665628552" />
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship"
-          TopLeft="475.999992907047,137.933332791925" />
+          TopLeft="490.333326026798,437.86666316986" />
         <NodeLayout
           Size="198.4,41.6"
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Shipment"
@@ -6130,13 +6505,25 @@
           Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Port"
           TopLeft="259.666662797332,202.666663646698" />
         <NodeLayout
-          Size="217.6,41.6"
-          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage"
-          TopLeft="1117.09522144922,191.695236752714" />
+          Size="203.2,41.6"
+          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship"
+          TopLeft="475.999992907047,137.933332791925" />
+        <NodeLayout
+          Size="225.6,41.6"
+          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail"
+          TopLeft="870.200018402935,280.163641655848" />
         <NodeLayout
           Size="236.8,41.6"
           Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_VoyagePort"
           TopLeft="1328.80950400872,121.580953597171" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Load_KramseTPS_v7\Rename MSC Stepnica"
+          TopLeft="495.833325944841,278.333329185844" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage"
+          TopLeft="1117.09522144922,191.695236752714" />
         <NodeLayout
           Size="188.8,41.6"
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Voyage"
@@ -6146,51 +6533,7 @@
           Id="Package\Load_KramseTPS_v7\KramseTPS_v7_Item"
           TopLeft="67.1666656658055,270.16666264087" />
         <EdgeLayout
-          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output5]"
-          TopLeft="1451.18807527072,163.180953597171">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,117.485716457027"
-              Start="0,0"
-              End="0,109.985716457027">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,109.985716457027" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output4]"
-          TopLeft="1225.69522134491,233.295236752714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,104.700002361834"
-              Start="0,0"
-              End="0,97.200002361834">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,97.200002361834" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output3]"
+          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output2]"
           TopLeft="769.233323456347,242.866665181518">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6203,28 +6546,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,101.600000782311" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output2]"
-          TopLeft="576.733326146007,179.533332791925">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,93.333332836628"
-              Start="0,0"
-              End="0,85.833332836628">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,85.833332836628" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6277,12 +6598,76 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="225.6,41.6"
-          Id="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail"
-          TopLeft="870.200018402935,280.163641655848" />
+        <EdgeLayout
+          Id="Package\Load_KramseTPS_v7.Paths[Derived Column Output]"
+          TopLeft="587.833325944841,319.933329185844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.299999918043,117.933333984016"
+              Start="0,0"
+              End="-10.299999918043,110.433333984016">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.966666992008" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.966666992008"
+                    Point2="0,58.966666992008"
+                    Point3="-4,58.966666992008" />
+                  <mssgle:LineSegment
+                    End="-6.299999918043,58.966666992008" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.299999918043,58.966666992008"
+                    Point2="-10.299999918043,58.966666992008"
+                    Point3="-10.299999918043,62.966666992008" />
+                  <mssgle:LineSegment
+                    End="-10.299999918043,110.433333984016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output6]"
+          TopLeft="577.599992907047,179.533332791925">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.2333330377941,98.799996393919"
+              Start="0,0"
+              End="10.2333330377941,91.299996393919">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.3999981969595" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.3999981969595"
+                    Point2="0,49.3999981969595"
+                    Point3="4,49.3999981969595" />
+                  <mssgle:LineSegment
+                    End="6.23333303779407,49.3999981969595" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.23333303779407,49.3999981969595"
+                    Point2="10.2333330377941,49.3999981969595"
+                    Point3="10.2333330377941,53.3999981969595" />
+                  <mssgle:LineSegment
+                    End="10.2333330377941,91.299996393919" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output5]"
           TopLeft="980.826193333844,165.413424081596">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6303,48 +6688,53 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output4]"
+          TopLeft="1451.18807527072,163.180953597171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,117.485716457027"
+              Start="0,0"
+              End="0,109.985716457027">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,109.985716457027" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_KramseTPS_v7.Paths[OLE DB Source Output3]"
+          TopLeft="1225.69522134491,233.295236752714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104.700002361834"
+              Start="0,0"
+              End="0,97.200002361834">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,97.200002361834" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Port">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Item">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Shipment">
     <Properties>
@@ -6372,7 +6762,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship">
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Port">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6385,7 +6775,33 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship">
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_VoyagePort">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Item">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_Ship">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6424,7 +6840,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage">
+    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Ship">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6438,6 +6867,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_VoyagePort">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_KramseTPS_v7\Load_KramseTPS_v7_Voyage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6479,11 +6921,23 @@
     design-time-name="Package\Load_MRV">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="100,41.6"
           Id="Package\Load_MRV\MRV"
-          TopLeft="370.384623451082,238.33333839145" />
+          TopLeft="405.000008820342,379.951521288139" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Load_MRV\Rename MSC Stepnica"
+          TopLeft="659.230783587906,227.878792460355" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Load_MRV\Rename Xin Beijing"
+          TopLeft="413.076932073169,169.969700322267" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Load_MRV\Lookup"
+          TopLeft="505.000010998204,310.860610391357" />
         <NodeLayout
           Size="128,41.6"
           Id="Package\Load_MRV\Load_MRV"
@@ -6494,52 +6948,141 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.9999999999999,105.733336460169"
+              EndConnector="63.4923086220869,37.3696983909859"
               Start="0,0"
-              End="-13.9999999999999,98.2333364601691">
+              End="63.4923086220869,29.8696983909859">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.8666682300846" />
+                    End="0,14.684849195493" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,48.8666682300846"
-                    Point2="0,52.8666682300846"
-                    Point3="-4,52.8666682300846" />
+                    Point1="0,14.684849195493"
+                    Point2="0,18.684849195493"
+                    Point3="4,18.684849195493" />
                   <mssgle:LineSegment
-                    End="-9.99999999999994,52.8666682300846" />
+                    End="59.4923086220869,18.684849195493" />
                   <mssgle:CubicBezierSegment
-                    Point1="-9.99999999999994,52.8666682300846"
-                    Point2="-13.9999999999999,52.8666682300846"
-                    Point3="-13.9999999999999,56.8666682300846" />
+                    Point1="59.4923086220869,18.684849195493"
+                    Point2="63.4923086220869,18.684849195493"
+                    Point3="63.4923086220869,22.684849195493" />
                   <mssgle:LineSegment
-                    End="-13.9999999999999,98.2333364601691" />
+                    End="63.4923086220869,29.8696983909859" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_MRV.Paths[Derived Column Output1]"
+          TopLeft="751.230783587906,269.478792460355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-189.830772589703,41.3818179310024"
+              Start="0,0"
+              End="-189.830772589703,33.8818179310024">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6909089655012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6909089655012"
+                    Point2="0,20.6909089655012"
+                    Point3="-4,20.6909089655012" />
+                  <mssgle:LineSegment
+                    End="-185.830772589703,20.6909089655012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-185.830772589703,20.6909089655012"
+                    Point2="-189.830772589703,20.6909089655012"
+                    Point3="-189.830772589703,24.6909089655012" />
+                  <mssgle:LineSegment
+                    End="-189.830772589703,33.8818179310024" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_MRV.Paths[Derived Column Output]"
+          TopLeft="582.676932073169,190.769700322267">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.5538515147375,57.9090921380878"
+              Start="0,0"
+              End="69.0538515147375,57.9090921380878">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.2769257573688,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.2769257573688,0"
+                    Point2="38.2769257573688,0"
+                    Point3="38.2769257573688,4" />
+                  <mssgle:LineSegment
+                    End="38.2769257573688,53.9090921380878" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.2769257573688,53.9090921380878"
+                    Point2="38.2769257573688,57.9090921380878"
+                    Point3="42.2769257573688,57.9090921380878" />
+                  <mssgle:LineSegment
+                    End="69.0538515147375,57.9090921380878" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load_MRV.Paths[Lookup Match Output]"
+          TopLeft="561.400010998204,352.460610391357">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.400002177862,27.4909108967822"
+              Start="0,0"
+              End="-106.400002177862,19.9909108967822">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.74545544839111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.74545544839111"
+                    Point2="0,13.7454554483911"
+                    Point3="-4,13.7454554483911" />
+                  <mssgle:LineSegment
+                    End="-102.400002177862,13.7454554483911" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.400002177862,13.7454554483911"
+                    Point2="-106.400002177862,13.7454554483911"
+                    Point3="-106.400002177862,17.7454554483911" />
+                  <mssgle:LineSegment
+                    End="-106.400002177862,19.9909108967822" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-101.391387807681,18.7454554483911,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load_MRV\Load_MRV">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load_MRV\MRV">
     <Properties>
@@ -6554,7 +7097,30 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load_KramseTPS_v7\KramseTPS_v7_ShipmentDetail">
+    design-time-name="Package\Load_MRV\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[KramseTPS_v7_Ship]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load_MRV\Load_MRV">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
